@@ -1,0 +1,66 @@
+turnPhase: {{ gameState.turnPhase }}<br>
+<div 
+  class="board"
+  *ngFor="let board of gameState.boards; let i = index"
+  [ngClass]="{'my-turn': gameState.whoseTurn === i}"
+>
+  <div class="score">
+    Score: 65
+  </div>
+
+  <div class="content-area">
+    <div class="palace">
+      <div class="level"
+        *ngFor="let level of board.palace.levels"
+        [ngClass]="{'can-accomodate': canAccomodate(level)}"
+      >
+        <div class="room"
+          *ngFor="let room of level.rooms"
+        >
+        </div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="row"
+        *ngFor="let row of board.grid.rows"
+      >
+        <div class="grid-cell"
+          *ngFor="let cell of row.cells"
+          [ngStyle]="{'background-color': cell.color}"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div 
+    class = "trash"
+  >
+  </div>  
+</div>
+
+<div class="factories">
+  <div class="factory"
+    *ngFor="let factory of gameState.factories"
+    [ngClass]="{'selecting': gameState.turnPhase === 'selecting'}"
+  >
+    {{factory.selected}}
+    <div class="factory-tile"
+      *ngFor="let tile of factory.contents"
+      [ngStyle]="{'background-color': tile.color}"
+      [ngClass]="{'selected': tile.selected === true}"
+      (click)="computeSelected(tile.color, factory)"
+    >
+    {{ tile.selected }}
+    </div>
+    <div class="confirm-selection"
+      *ngIf="gameState.turnPhase === 'confirmingSelection' && factory.selected === true"
+    >
+      <button (click)="confirmSelection(factory)">Confirm Selection</button>
+    </div>
+  </div>
+  <div class="street factory">
+    I'm a pimpin Street
+  </div>
+</div>
+

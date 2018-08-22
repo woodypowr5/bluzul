@@ -1,3 +1,4 @@
+import { GameService } from './shared/services/game.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bluzulApp';
+
+  constructor(private gameService: GameService) {}
+
+  startGame(numPlayers: number): void {
+    this.gameService.startNewGame(numPlayers);
+   }
 }

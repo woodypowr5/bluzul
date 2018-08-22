@@ -1,0 +1,88 @@
+.board{
+    width: 45%;
+    margin-left: 4%;
+    border: 2px solid gray;
+    height: 35%;
+    display: inline-block;
+}
+.board.my-turn{
+    outline: 3px solid black;
+}
+    .score{
+        height: 10%;
+    }
+    .content-area{
+        height: 60%;
+        position: relative;
+    }
+        .palace{
+            width: 40%;
+            margin-left: 5%;
+            height: 100%;
+            display: inline-block;
+        }
+            .level{
+                width: 100%;
+                height: 20%;
+            }
+            .level.can-accomodate{
+                background-color: yellow;
+            }
+                .room{
+                    width: 20%;
+                    height: 100%;
+                    outline: 1px solid black; 
+                    display: inline-block;
+                }
+
+        .grid{
+            width: 40%;
+            margin-left: 5%;
+            height: 100%;
+            display: inline-block;
+        }
+            .row{
+                width: 100%;
+                height: 20%;
+            }
+                .grid-cell{
+                    width: 20%;
+                    height: 100%;
+                    outline: 1px solid black; 
+                    display: inline-block;
+                }
+    .trash{
+        height: 30%;
+    }
+.factories{
+    display: flex;
+    justify-content: space-around;
+    height: 30%;
+    padding: 50px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+    .factory{
+        padding: 30px;
+        width: 26%;
+        margin-bottom: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        outline: 2px solid brown;
+        background-color: salmon;
+    }
+    .factory.selecting{
+        outline: 2px solid orange;
+    }
+        .factory-tile{
+            width: 40px;
+            height: 40px;
+            margin-bottom: 20px;
+            outline: 2px solid #CCC;
+            margin-right: 30px;
+        }
+        .factory-tile.selected{
+            outline: 3px solid green;;
+        }
