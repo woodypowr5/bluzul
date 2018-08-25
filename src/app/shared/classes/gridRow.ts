@@ -47,7 +47,6 @@ export class GridRow {
     }
 
     canPlaceTile(color: ColorEnum) {
-        console.log(color)
         let isAvailable = false;
         this.cells.map(cell => {
             if (cell.color === color) {

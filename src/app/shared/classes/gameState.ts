@@ -1,3 +1,6 @@
+import { Street } from './street';
+import { DisposalQueue } from './disposalQueue';
+import { Placement } from './placement';
 import { Selection } from './selection';
 import { TurnPhaseEnum } from './turnPhaseEnum';
 import { Trash } from './trash';
@@ -13,6 +16,9 @@ export class GameState {
     public whoseTurn: number = null;
     public turnPhase: TurnPhaseEnum = null;
     public factories: Factory[] = [];
+    public street: Street;
     public bag: Bag = null;
     public selection: Selection = null;
+    public placement: Placement;
+    public disposalQueue: DisposalQueue;
 }

@@ -4,6 +4,7 @@
     border: 2px solid gray;
     height: 35%;
     display: inline-block;
+    position: relative;
 }
 .board.my-turn{
     outline: 3px solid black;
@@ -25,7 +26,7 @@
                 width: 100%;
                 height: 20%;
             }
-            .level.can-accomodate{
+            .level.can-accomodate:hover{
                 background-color: yellow;
             }
                 .room{
@@ -34,6 +35,18 @@
                     outline: 1px solid black; 
                     display: inline-block;
                 }
+                    .room-tile{
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                    }
+                        .room-tile-tile{
+                            position: absolute;
+                            left: 5%;
+                            top: 5%;
+                            height: 90%;
+                            width: 90%; 
+                        }
 
         .grid{
             width: 40%;
@@ -53,6 +66,41 @@
                 }
     .trash{
         height: 30%;
+        display: flex;
+    }
+        .space{
+            width: 15%; 
+            height: 80%;
+            outline: 1px solid black;
+        }
+            .space-tile{
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+                .space-tile-tile{
+                    position: absolute;
+                    left: 5%;
+                    top: 5%;
+                    height: 90%;
+                    width: 90%; 
+                }
+    .placement-queue{
+        position: absolute;
+        width: 50%;
+        height: 20%;
+        bottom: 5%;
+        left: 25%;
+        border: 2px solid black;
+        background-color: #CCC;
+    }
+    .confirm-placement{
+        position: absolute;
+        height: 10%;
+        bottom: 5%;
+        right: 5%;
+        border: 2px solid black;
+        background-color: #CCC;
     }
 .factories{
     display: flex;
@@ -86,3 +134,7 @@
         .factory-tile.selected{
             outline: 3px solid green;;
         }
+    .street{
+
+    }
+        

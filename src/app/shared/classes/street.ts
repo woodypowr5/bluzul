@@ -1,24 +1,22 @@
-import { DisposalQueue } from './disposalQueue';
+import { Selection } from './selection';
 import { Tile } from './tile';
-import { Constants } from './../data/constants';
+import { ColorEnum } from './colorEnum';
 import { Bag } from './bag';
 import { Injectable } from '@angular/core';
-import { ColorEnum } from './colorEnum';
 
 @Injectable()
-export class Factory {
+export class Street {
     private contents: Tile[] = [];
     private selectedColor = null;
     private selected = false;
 
-    constructor(private bag: Bag) {
-        this.populate(bag);
+    addTiles(tiles: Tile[]) {
+        tiles.map(tile => {
+            this.contents.push(tile);
+        });
     }
 
-    populate(bag: Bag): void {
-        for (let i = 0; i < Constants.tilesPerFactory; i++) {
-            this.contents.push(bag.getTile());
-        }
+    constructor(private bag: Bag) {
     }
 
     computeSelected(color: ColorEnum): Tile[] {
@@ -43,18 +41,13 @@ export class Factory {
         this.selectedColor = null;
     }
 
-    computeDiscardedTiles(color: ColorEnum): DisposalQueue {
-        const disposalQueue = new DisposalQueue();
-        this.contents.map(tile => {
-            if (tile.color !== color) {
-               disposalQueue.addTile(new Tile(tile.color));
+    removeSelectedTiles(selection: Selection): void {
+        for (let i = 0; i < this.contents.length; i++) {
+            if (this.contents[i].color === selection.color) {
+                this.contents.splice(i, 1);
+                i--;
             }
-        });
-        return disposalQueue;
-    }
-
-    removeSelectedTiles() {
-        this.contents = [];
+        }
     }
 
     isEmpty() {
