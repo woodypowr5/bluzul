@@ -104,6 +104,10 @@ export class BluzulComponent implements OnInit {
     this.gameService.placementConfirmed();
   }
 
+  calculateRoundScore() {
+         
+  }
+
   public getArrayFromNumber(number: number): any[] {
     return Array(number);
   }
