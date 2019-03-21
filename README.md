@@ -1,5 +1,9 @@
 # BluzulApp
 
+Just an expirimental attempt to recreate the game Azul using Angular
+
+current dev site: TBA
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.0-rc.0.
 
 ## Development server
